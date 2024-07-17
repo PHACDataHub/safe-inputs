@@ -98,7 +98,7 @@ i18n.activate('en');
 // | | |  __/ | | | (_| |  __/ |
 // |_|  \___|_| |_|\__,_|\___|_|
 
-const container = document.getElementById('root');
+const container = document.getElementById('react-root');
 const root = createRoot(container!);
 
 const auth_base_url = '/api/auth';
