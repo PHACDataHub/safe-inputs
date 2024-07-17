@@ -27,6 +27,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { get_csrf_token, csrf_header } from './components/auth/auth_utils.ts';
 import { SessionProvider } from './components/auth/session.tsx';
 
+import AppErrorFallback from './components/error/AppErrorFallback.tsx';
 import { messages as enMessages } from './i18n/locales/en/messages.ts';
 import { messages as frMessages } from './i18n/locales/fr/messages.ts';
 
@@ -34,7 +35,6 @@ import ExcelParser from './pages/ExcelParser.tsx';
 import NavWrapper from './pages/NavWrapper.tsx';
 import SignIn from './pages/SignIn.tsx';
 import TermsAndConditions from './pages/TermsAndConditions.tsx';
-import AppErrorFallback from './pages/error/AppErrorFallback.tsx';
 
 //  _   _
 // | |_| |__   ___ _ __ ___   ___

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Trans } from '@lingui/macro';
 import './index.css';
 
@@ -7,7 +6,7 @@ interface ErrorFallbackProps {
   resetErrorBoundary: () => void;
 }
 
-const NavWrapperErrorFallBack: React.FC<ErrorFallbackProps> = ({ error }) => {
+function NavWrapperErrorFallBack({ error }: ErrorFallbackProps) {
   return (
     <div className="error-container">
       <div className="error-title">
@@ -24,6 +23,6 @@ const NavWrapperErrorFallBack: React.FC<ErrorFallbackProps> = ({ error }) => {
       </a>
     </div>
   );
-};
+}
 
 export default NavWrapperErrorFallBack;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './index.css';
 
 interface ErrorFallbackProps {
@@ -27,7 +27,7 @@ const translate = (key: TranslationKey, language: Language): string => {
   return translations[language][key] || key;
 };
 
-const AppErrorFallback: React.FC<ErrorFallbackProps> = ({ error }) => {
+function AppErrorFallback({ error }: ErrorFallbackProps) {
   const [language, setLanguage] = useState<Language>('en');
 
   const buttonText = language === 'en' ? 'Fr' : 'En';
@@ -50,6 +50,6 @@ const AppErrorFallback: React.FC<ErrorFallbackProps> = ({ error }) => {
       </a>
     </div>
   );
-};
+}
 
 export default AppErrorFallback;
