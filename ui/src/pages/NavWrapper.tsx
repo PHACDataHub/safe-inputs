@@ -1,5 +1,7 @@
+import { ErrorBoundary } from 'react-error-boundary';
 import { Outlet } from 'react-router-dom';
 
+import AppErrorFallback from 'src/components/error/AppErrorFallback.tsx';
 import Footer from 'src/components/layout/Footer.tsx';
 import Header from 'src/components/layout/Header.tsx';
 
@@ -8,7 +10,9 @@ export default function NavWrapper() {
   return (
     <>
       <Header />
-      <Outlet />
+      <ErrorBoundary FallbackComponent={AppErrorFallback}>
+        <Outlet />
+      </ErrorBoundary>
       <Footer />
     </>
   );

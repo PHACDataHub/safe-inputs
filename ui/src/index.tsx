@@ -20,11 +20,14 @@ import { I18nProvider } from '@lingui/react';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 
+import { ErrorBoundary } from 'react-error-boundary';
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { get_csrf_token, csrf_header } from './components/auth/auth_utils.ts';
 import { SessionProvider } from './components/auth/session.tsx';
 
+import AppErrorFallback from './components/error/AppErrorFallback.tsx';
 import { messages as enMessages } from './i18n/locales/en/messages.ts';
 import { messages as frMessages } from './i18n/locales/fr/messages.ts';
 
@@ -112,25 +115,27 @@ const client = new ApolloClient({
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <SessionProvider authBaseURL={auth_base_url}>
-        <ApolloProvider client={client}>
-          <ChakraProvider theme={theme}>
-            <I18nProvider i18n={i18n}>
-              <Routes>
-                <Route path="/" element={<NavWrapper />}>
-                  <Route path="" element={<ExcelParser />} />
-                  <Route path="signin" element={<SignIn />} />
-                  <Route
-                    path="termsAndConditions"
-                    element={<TermsAndConditions />}
-                  />
-                </Route>
-              </Routes>
-            </I18nProvider>
-          </ChakraProvider>
-        </ApolloProvider>
-      </SessionProvider>
-    </BrowserRouter>
+    <ErrorBoundary FallbackComponent={AppErrorFallback}>
+      <BrowserRouter>
+        <SessionProvider authBaseURL={auth_base_url}>
+          <I18nProvider i18n={i18n}>
+            <ApolloProvider client={client}>
+              <ChakraProvider theme={theme}>
+                <Routes>
+                  <Route path="/" element={<NavWrapper />}>
+                    <Route path="" element={<ExcelParser />} />
+                    <Route path="signin" element={<SignIn />} />
+                    <Route
+                      path="termsAndConditions"
+                      element={<TermsAndConditions />}
+                    />
+                  </Route>
+                </Routes>
+              </ChakraProvider>
+            </ApolloProvider>
+          </I18nProvider>
+        </SessionProvider>
+      </BrowserRouter>
+    </ErrorBoundary>
   </React.StrictMode>,
 );

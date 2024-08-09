@@ -1,4 +1,4 @@
-import { Box, Container, Text } from '@chakra-ui/react';
+import { Box, Container } from '@chakra-ui/react';
 import { Trans } from '@lingui/macro';
 import { useState } from 'react';
 import type { WorkBook } from 'xlsx';
@@ -44,16 +44,9 @@ export default function ExcelParser(): JSX.Element {
   return (
     <>
       <Box className="App-header" mb={2}>
-        <Trans>Safe Inputs PoC</Trans>
-        {!displayComponent && (
-          <Text>
-            {' '}
-            Sample file can be found{' '}
-            <a href="https://github.com/PHACDataHub/safe-inputs/blob/main/ui/test/test-spreadsheet.xlsx">
-              <u>here</u>
-            </a>
-          </Text>
-        )}
+        <h2>
+          <Trans>Safe Inputs PoC</Trans>
+        </h2>
       </Box>
       <Container maxW="7xl" px={{ base: 5, md: 10 }} mt={8} minH="63vh">
         <ExcelUploadForm onSubmit={handleFileUpload} />

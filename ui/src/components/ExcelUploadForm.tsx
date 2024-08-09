@@ -4,6 +4,8 @@ import type { FormikHelpers, FieldProps } from 'formik';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
+import { Link } from './Link.tsx';
+
 interface ExcelUploadFormValues {
   file: File | null;
 }
@@ -56,7 +58,15 @@ const ExcelUploadForm = ({
             }}
           >
             <FormLabel>
-              <Trans>Choose a spreadsheet to upload</Trans>
+              <Trans>
+                Choose a spreadsheet to upload. Sample file can be found{' '}
+                <Link
+                  style={{ textDecoration: 'underline' }}
+                  href="https://github.com/PHACDataHub/safe-inputs/blob/main/ui/test/test-spreadsheet.xlsx"
+                >
+                  here
+                </Link>
+              </Trans>
             </FormLabel>
             <Center>
               <Field name="file">

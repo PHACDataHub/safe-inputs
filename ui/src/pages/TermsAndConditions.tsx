@@ -442,7 +442,9 @@ export default function TermsAndConditions() {
   return (
     <>
       <Box className="App-header" mb={2}>
-        <Trans>Terms and Conditions</Trans>
+        <h2>
+          <Trans>Terms and Conditions</Trans>
+        </h2>
       </Box>
 
       <Container maxW="7xl" px={10} my={6} textAlign="justify">
