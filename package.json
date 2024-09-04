@@ -24,7 +24,6 @@
     "typecheck": "trap 'RC=1' ERR; npm run typecheck:api; npm run typecheck:ui; exit $RC"
   },
   "devDependencies": {
-    "@microsoft/eslint-plugin-sdl": "github:microsoft/eslint-plugin-sdl",
     "@typescript-eslint/eslint-plugin": "7.18.0",
     "@typescript-eslint/parser": "7.18.0",
     "eslint": "9.9.1",

@@ -55,7 +55,6 @@
   },
   "devDependencies": {
     "@jest/globals": "29.7.0",
-    "@microsoft/eslint-plugin-sdl": "github:microsoft/eslint-plugin-sdl",
     "@types/cookie-parser": "1.4.7",
     "@types/express": "4.17.21",
     "@types/express-session": "1.18.0",
