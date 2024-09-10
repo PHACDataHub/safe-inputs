@@ -24,17 +24,16 @@
     "typecheck": "trap 'RC=1' ERR; npm run typecheck:api; npm run typecheck:ui; exit $RC"
   },
   "devDependencies": {
-    "@microsoft/eslint-plugin-sdl": "github:microsoft/eslint-plugin-sdl",
-    "@typescript-eslint/eslint-plugin": "7.18.0",
-    "@typescript-eslint/parser": "7.18.0",
-    "eslint": "8.57.0",
+    "@typescript-eslint/eslint-plugin": "8.4.0",
+    "@typescript-eslint/parser": "8.4.0",
+    "eslint": "9.9.1",
     "eslint-config-prettier": "9.1.0",
-    "eslint-config-standard": "17.1.0",
     "eslint-import-resolver-typescript": "3.6.3",
     "eslint-plugin-import": "2.30.0",
     "eslint-plugin-jest": "28.8.3",
     "eslint-plugin-no-secrets": "1.0.2",
-    "eslint-plugin-promise": "6.6.0",
+    "eslint-plugin-promise": "7.1.0",
+    "neostandard": "^0.11.4",
     "prettier": "3.3.3"
   }
 }

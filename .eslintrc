@@ -1,7 +1,7 @@
 {
   "root": true,
   "extends": [
-    "standard",
+    "neostandard",
     "prettier",
     "plugin:import/errors",
     "plugin:import/warnings",
