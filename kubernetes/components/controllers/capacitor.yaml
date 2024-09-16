@@ -39,15 +39,6 @@ spec:
     name: capacitor
   patches:
     - target:
-        kind: ClusterRole
-        name: capacitor
-      # might cause problems if the upstream project reorders the elements.
-      patch: |-
-        - op: remove
-          path: /rules/1/verbs/3
-        - op: remove
-          path: /rules/0/resources/1
-    - target:
         kind: Deployment
         name: capacitor
       patch: |-
