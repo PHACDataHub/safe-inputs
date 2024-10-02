@@ -33,5 +33,16 @@
       matchPackageNames: ['ghcr.io/gimlet-io/capacitor-manifests'],
       pinDigests: false,
     },
+    {
+      description: 'Ignore docker updates for Flux images due to https://github.com/HC-IPPM/safe-inputs/pull/655#issuecomment-2377463287',
+      ignoreDeps: [
+        'ghcr.io/fluxcd/notification-controller',
+        'ghcr.io/fluxcd/image-reflector-controller',
+        'ghcr.io/fluxcd/image-automation-controller',
+        'ghcr.io/fluxcd/helm-controller',
+        'ghcr.io/fluxcd/kustomize-controller',
+        'ghcr.io/fluxcd/source-controller',
+      ],
+    },
   ],
 }
