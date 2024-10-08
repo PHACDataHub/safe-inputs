@@ -16,5 +16,6 @@ steps:
     entrypoint: 'npm'
     dir: ./
     args: ['run', 'eslint:ci'] # currently allowing warnings, but could be tightened up post https://github.com/PHACDataHub/safe-inputs/issues/144
+
 options:
   defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET

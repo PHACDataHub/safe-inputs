@@ -8,6 +8,8 @@
 
 */dist
 
+**/axe-results
+
 deploy
 
 .eslintcache

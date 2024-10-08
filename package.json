@@ -6,7 +6,7 @@
   "keywords": [],
   "license": "MIT",
   "scripts": {
-    "postinstall": "(cd ./api && npm ci); (cd ui && npm ci);",
+    "postinstall": "(cd ./api && npm ci); (cd ui && npm ci); (cd axe-testing && npm ci)",
     "dev": "docker compose -f ./docker-compose.dev.yaml up",
     "predev": "npm run dev:down",
     "dev:debug": "DOCKER_API_COMMAND=docker-debug docker compose -f ./docker-compose.dev.yaml up",

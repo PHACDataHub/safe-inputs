@@ -1,0 +1,8 @@
+{
+  "blacklistUrls": [
+    "http://127.0.0.1:8080/termsAndConditions",
+    "http://127.0.0.1:8080/signin?post_auth_redirect=%2F&message=SessionRequired"
+  ],
+  "ignoreViolations": [],
+  "ignoreIncomplete": ["landmark-one-main", "page-has-title", "color-contrast"]
+}

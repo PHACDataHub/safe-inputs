@@ -17,6 +17,58 @@ steps:
     entrypoint: npm
     args: ['test']
 
+  - id: docker-compose-up-dev-environment-for-axe-testing
+    name: 'gcr.io/cloud-builders/docker'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        docker compose -f ./docker-compose.dev.yaml down -v && \
+        docker compose -f ./docker-compose.dev.yaml up -d && \
+        sleep 50
+
+  - id: build-axe-container
+    name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'axe', './axe-testing']
+
+  - id: prepare-results-directory # was having permission issues: Error: EACCES: permission denied, open './axe-results/*.json'
+    name: 'gcr.io/cloud-builders/docker'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        mkdir -p /workspace/axe-results && \
+        chmod -R 777 /workspace/axe-results
+
+  - id: run-axe-scan
+    name: 'gcr.io/cloud-builders/docker'
+    args: [
+        'run',
+        '--network',
+        'host', # to access the dev environment
+        '--rm',
+        '--volume',
+        '/workspace/axe-results:/app/axe-results',
+        'axe',
+      ]
+
+  # - id: upload-axe-results-gcs
+  #   name: 'gcr.io/cloud-builders/gsutil'
+  #   entrypoint: 'bash'
+  #   args:
+  #     - '-c'
+  #     - |
+  #       gsutil cp /workspace/axe-results/ci_axe_results_*.json \
+  #       gs://safe-inputs-axe-ci-results/
+
+  - id: docker-compose-down-dev-environment
+    name: 'gcr.io/cloud-builders/docker'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        docker compose -f ./docker-compose.dev.yaml down -v
+
   - id: generate-image-name
     name: 'gcr.io/cloud-builders/docker@sha256:0e3fa78f64d862380096fc1129fc42211965458fe6aaad57cef39494e4fb9ece'
     entrypoint: 'bash'

@@ -1,0 +1,28 @@
+{
+  "name": "axe-testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest --coverage",
+    "lint": "eslint src",
+    "dbg": "node --experimental-vm-modules --inspect-brk node_modules/.bin/jest --runInBand --no-cache",
+    "start": "node --experimental-vm-modules index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@axe-core/puppeteer": "^4.10.0",
+    "dotenv": "^16.4.5",
+    "puppeteer": "^23.5.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.12.0",
+    "eslint": "^9.12.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^15.10.0",
+    "prettier": "^3.3.3"
+  }
+}
